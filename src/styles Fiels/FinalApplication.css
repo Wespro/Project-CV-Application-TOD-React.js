@@ -1,0 +1,176 @@
+.finalApplication {
+  min-width: 50vw;
+  min-height: 90vh;
+  background-color: #e7e7e7;
+  border-radius: 3px;
+  position: relative;
+
+  border-radius: 14px;
+  box-shadow: 8px 8px 20px rgb(0, 0, 0);
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto;
+}
+.finalCVHeader {
+  margin: 0;
+  padding: 1rem 0 2rem;
+  background-color: transparent;
+}
+#fullNameFinal {
+  margin: 1rem 0 0;
+  max-height: fit-content;
+
+  font-size: 2.3rem;
+  padding: 0.5rem;
+  border: none;
+  background-color: transparent;
+  text-align: center;
+  color: aliceblue;
+}
+#fullNameFinal:focus {
+  background-color: aliceblue;
+  color: black;
+}
+#phoneNumberFinal,
+#emailFinal {
+  min-width: min-content;
+  flex-grow: 1;
+  align-self: stretch;
+  text-align: center;
+  background-color: transparent;
+  border: none;
+  color: aliceblue;
+  font-size: 1.6rem;
+  padding: 0.5rem;
+}
+
+#phoneNumberFinal:focus {
+  background-color: aliceblue;
+  color: black;
+}
+
+#emailFinal:focus {
+  background-color: aliceblue;
+  color: black;
+}
+h1 {
+  margin: 0;
+  padding: 1rem 0;
+  font-size: 2.5rem;
+}
+
+.finalEduInfo {
+  border-bottom: 3px solid black;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+}
+.finalGeneralInfo {
+  padding: 0 1rem;
+  border-bottom: 3px solid black;
+  background-color: rgb(44, 44, 44);
+  color: aliceblue;
+  display: grid;
+}
+.finalprofInfo {
+  border-bottom: 3px solid black;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+}
+
+.email-PhoneWrapper,
+.eduSectionContent,
+.profSectionContent {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  gap: 2rem;
+  color: black;
+}
+.eduSectionContent,
+.profSectionContent {
+  align-items: center;
+}
+.inputContFinal {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+}
+.inputContFinal label {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+.inputContFinal input {
+  min-width: 100%;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  background-color: transparent;
+  text-align: center;
+  border: none;
+}
+.inputContFinal input:focus {
+  background-color: white;
+}
+#schoolNameFinal,
+#studyTitleFinal,
+#studyDateFinal {
+  width: 12rem;
+  border: none;
+  font-size: 1.2rem;
+  background-color: transparent;
+  text-align: center;
+}
+#schoolNameFinal:focus {
+  background-color: white;
+}
+#studyTitleFinal:focus {
+  background-color: white;
+}
+#studyDateFinal:focus {
+  background-color: white;
+}
+
+.sectionName {
+  background-color: rgb(210, 210, 210);
+}
+.profSectionContent {
+  padding: 3rem;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.profSectionContentTopSide {
+  display: flex;
+  justify-content: space-around;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.profSectionContentBotSide {
+  display: flex;
+  justify-content: space-around;
+  gap: 2rem;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+.profSectionContentTopSide > * {
+  flex-grow: 1;
+}
+.profSectionContentBotSide > * {
+  flex-grow: 1;
+}
+
+/* .edit {
+  position: absolute;
+
+  left: 0;
+  transform: translate(-100%, 0);
+  background-color: rgb(255, 183, 0);
+  color: black;
+} */
+
+.dowenload {
+  margin: 1rem auto;
+}

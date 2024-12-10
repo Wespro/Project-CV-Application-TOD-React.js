@@ -11,9 +11,8 @@ export default function FormActions({
   setsection3Validity,
   addEventListenersInputs,
   areaActiveFn,
-  submitCheckerFn,
 }) {
-  function isValid(direction) {
+  function isInputsValid() {
     const sectionInputs = document.querySelectorAll(`.${section}InfoInput`);
 
     const sectionInputsArr = [...sectionInputs];
@@ -21,57 +20,105 @@ export default function FormActions({
     const vaildInputs = sectionInputsArr.filter((input) =>
       input.checkValidity()
     );
-    console.log(vaildInputs.length, sectionInputs.length);
-    if (
-      vaildInputs.length &&
-      sectionInputsArr.length &&
-      vaildInputs.length === sectionInputsArr.length
-    ) {
-      if (direction === "next") {
-        if (section === "general") {
-          setsection1Validity((prevState) => {
-            return true;
-          });
+    return { vaildInputs, sectionInputsArr };
+  }
+
+  // function validateSection(direction) {
+  //   const vaildInputs = isInputsValid().vaildInputs;
+  //   const sectionInputsArr = isInputsValid().sectionInputsArr;
+
+  //   if (
+  //     vaildInputs.length &&
+  //     sectionInputsArr.length &&
+  //     vaildInputs.length === sectionInputsArr.length
+  //   ) {
+  //     if (direction === "next") {
+  //       if (section === "general") {
+  //         setsection1Validity((prevState) => {
+  //           return true;
+  //         });
+  //         setSection("edu");
+  //         areaActiveFn("edu");
+  //       } else if (section === "edu") {
+  //         setsection2Validity((prevState) => {
+  //           return true;
+  //         });
+  //         setSection("prof");
+  //         areaActiveFn("prof");
+  //       }
+  //     } else if (direction === "prev") {
+  //       if (section === "edu") {
+  //         setsection2Validity((prevState) => {
+  //           return true;
+  //         });
+  //         setSection("general");
+  //         areaActiveFn("general");
+  //       } else if (section === "prof") {
+  //         setsection3Validity((prevState) => true);
+  //         console.log(section3Validity);
+  //         setSection("edu");
+  //         areaActiveFn("edu");
+  //       }
+  //     } else {
+  //       setsection3Validity((prevState) => true);
+  //     }
+  //   } else {
+  //     if (section === "general") {
+  //       setsection1Validity((prevState) => {
+  //         return false;
+  //       });
+  //     } else if (section === "edu") {
+  //       setsection2Validity((prevState) => {
+  //         return false;
+  //       });
+  //     } else {
+  //       setsection3Validity((prevState) => {
+  //         return false;
+  //       });
+  //     }
+  //   }
+  // }
+  function validateSection(direction) {
+    const { vaildInputs, sectionInputsArr } = isInputsValid();
+    const isAllValid = vaildInputs.length === sectionInputsArr.length;
+
+    const sectionActions = {
+      general: {
+        next: () => {
           setSection("edu");
           areaActiveFn("edu");
-        } else if (section === "edu") {
-          setsection2Validity((prevState) => {
-            return true;
-          });
+        },
+        setValidity: () => setsection1Validity(isAllValid),
+      },
+      edu: {
+        next: () => {
           setSection("prof");
           areaActiveFn("prof");
-        }
-      } else if (direction === "prev") {
-        if (section === "edu") {
-          setsection2Validity((prevState) => {
-            return true;
-          });
+        },
+        prev: () => {
           setSection("general");
           areaActiveFn("general");
-        } else if (section === "prof") {
-          setsection3Validity((prevState) => true);
-          console.log(section3Validity);
+        },
+        setValidity: () => setsection2Validity(isAllValid),
+      },
+      prof: {
+        prev: () => {
           setSection("edu");
           areaActiveFn("edu");
-        }
-      } else {
-        setsection3Validity((prevState) => true);
-      }
-    } else {
-      if (section === "general") {
-        setsection1Validity((prevState) => {
-          return false;
-        });
-      } else if (section === "edu") {
-        setsection2Validity((prevState) => {
-          return false;
-        });
-      } else {
-        setsection3Validity((prevState) => {
-          return false;
-        });
-      }
+        },
+        setValidity: () => setsection3Validity(isAllValid),
+      },
+    };
+
+    const currentSectionActions = sectionActions[section];
+
+    if (direction === "next") {
+      currentSectionActions.next?.();
+    } else if (direction === "prev") {
+      currentSectionActions.prev?.();
     }
+
+    currentSectionActions.setValidity();
   }
 
   function switchAction() {
@@ -82,7 +129,7 @@ export default function FormActions({
             onClick={(e) => {
               e.preventDefault();
               addEventListenersInputs();
-              isValid("next");
+              validateSection("next");
             }}
             text="Next"
           />
@@ -94,7 +141,7 @@ export default function FormActions({
               onClick={(e) => {
                 e.preventDefault();
                 addEventListenersInputs();
-                isValid("prev");
+                validateSection("prev");
               }}
               text="Prev"
             />
@@ -102,7 +149,7 @@ export default function FormActions({
               onClick={(e) => {
                 e.preventDefault();
                 addEventListenersInputs();
-                isValid("next");
+                validateSection("next");
               }}
               text="Next"
             />
@@ -116,16 +163,15 @@ export default function FormActions({
             onClick={(e) => {
               e.preventDefault();
               addEventListenersInputs();
-              isValid("prev");
+              validateSection("prev");
             }}
             text="Prev"
           />
           <Button
             text="Submit"
             onClick={(e) => {
-              e.preventDefault();
-              isValid();
-              setTimeout(submitCheckerFn(), 1000);
+              e.preventDefault(e);
+              validateSection(e);
             }}
           />
         </>

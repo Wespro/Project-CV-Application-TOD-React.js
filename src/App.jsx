@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
@@ -13,7 +13,9 @@ import FinalApplication from "./comps/FinalApplication";
 function App() {
   const [section, setSection] = useState("general");
   const [submit, setSubmit] = useState(false);
-
+  // console.log("first", submit);
+  // setSubmit(true);
+  // console.log("sec", submit);
   const [section1Validity, setsection1Validity] = useState(false);
   const [section2Validity, setsection2Validity] = useState(false);
   const [section3Validity, setsection3Validity] = useState(false);
@@ -68,12 +70,11 @@ function App() {
           .classList.add("areaActive")
       : null;
   }
-  function submitCheckerFn() {
-    console.log(section1Validity, section2Validity, section3Validity);
+  useEffect(() => {
     if (section1Validity && section2Validity && section3Validity) {
       setSubmit(true);
     }
-  }
+  }, [section1Validity, section2Validity, section3Validity]);
 
   function switchFormPages() {
     if (section === "general") {
@@ -177,7 +178,6 @@ function App() {
             section={section}
             addEventListenersInputs={addEventListenersInputs}
             areaActiveFn={areaActiveFn}
-            submitCheckerFn={submitCheckerFn}
           />
         </form>
       );

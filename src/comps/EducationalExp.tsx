@@ -12,7 +12,7 @@ export default function EducationalExp({
         inputType={'text'}
         placeHolder='Olympus'
         text={'School Name'}
-        label={'schoolName'}
+        label={'schoolNameInput'}
         inputOF={'eduInfoInput'}
         contClass={'inputCont'}
         value={formInputs.schoolNameInput}
@@ -24,7 +24,7 @@ export default function EducationalExp({
         inputType={'text'}
         placeHolder='Physics'
         text={'Study title'}
-        label={'studyTitle'}
+        label={'studyTitleInput'}
         inputOF={'eduInfoInput'}
         contClass={'inputCont'}
         value={formInputs.studyTitleInput}
@@ -36,7 +36,7 @@ export default function EducationalExp({
         inputType={'date'}
         text={'Study date'}
         placeHolder={''}
-        label={'studyDate'}
+        label={'studyDateInput'}
         inputOF={'eduInfoInput'}
         contClass={'inputCont'}
         value={formInputs.studyDateInput}

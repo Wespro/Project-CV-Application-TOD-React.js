@@ -26,7 +26,7 @@ export default function TextArea({
   const handleFormTextArea = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { id, value } = e.target;
     if (formInputs && setFormInputs) {
-      setFormInputs({ ...formInputs, [id + 'TextArea']: value });
+      setFormInputs({ ...formInputs, [id]: value });
     }
   };
   return (

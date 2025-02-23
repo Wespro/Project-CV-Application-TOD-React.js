@@ -14,7 +14,7 @@ export default function ProfessionalExp({
           inputType={'text'}
           placeHolder='Google'
           text={'Company-name'}
-          label={'companyName'}
+          label={'companyNameInput'}
           inputOF={'profInfoInput'}
           contClass={'inputCont'}
           value={formInputs.companyNameInput}
@@ -26,7 +26,7 @@ export default function ProfessionalExp({
           inputType={'text'}
           placeHolder='Front-end web dev'
           text={'Position-title'}
-          label={'positionTitle'}
+          label={'positionTitleInput'}
           contClass={'inputCont'}
           inputOF={'profInfoInput'}
           value={formInputs.positionTitleInput}
@@ -38,7 +38,7 @@ export default function ProfessionalExp({
       <div className='jobResponsibility'>
         <TextArea
           text={'Main-responsibility'}
-          label={'mainResponsibility'}
+          label={'mainResponsibilityTextArea'}
           textAreaOF={'profInfoInput'}
           value={formInputs.mainResponsibilityTextArea}
           setFormInputs={setFormInputs}
@@ -52,7 +52,7 @@ export default function ProfessionalExp({
           inputType={'date'}
           placeHolder='12-12-2011'
           text={'Start Date'}
-          label={'startDate'}
+          label={'startDateInput'}
           contClass={'inputCont'}
           inputOF={'profInfoInput'}
           value={formInputs.startDateInput}
@@ -64,7 +64,7 @@ export default function ProfessionalExp({
           inputType={'date'}
           placeHolder='12-12-2012'
           text={'End Date'}
-          label={'endDate'}
+          label={'endDateInput'}
           contClass={'inputCont'}
           inputOF={'profInfoInput'}
           value={formInputs.endDateInput}

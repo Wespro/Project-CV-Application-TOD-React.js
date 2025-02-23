@@ -30,6 +30,6 @@
 input:user-invalid {
   border-color: red;
 }
-input:focus:invalid {
+input:focus:user-invalid {
   border-color: red;
 }

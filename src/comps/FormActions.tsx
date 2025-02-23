@@ -1,5 +1,5 @@
 import Button from './Button';
-import '../styles Files/FinalApplication.css';
+import '../styles Files/FormActions.css';
 import React from 'react';
 import { FormActionsPropsTypes, SectionActions } from '../types';
 export default function FormActions({
@@ -7,19 +7,18 @@ export default function FormActions({
   setSectionsValidity,
   setSection,
   section,
-  addEventListenersInputs,
+  displayValidity,
   areaActiveFn,
 }: FormActionsPropsTypes): JSX.Element | null {
   function isInputsValid() {
     const sectionInputs = document.querySelectorAll(
       `.${section}InfoInput`
     ) as NodeListOf<HTMLInputElement>;
-
     const sectionInputsArr = [...sectionInputs];
-
     const validInputs = sectionInputsArr.filter((input) =>
       input.checkValidity()
     );
+
     return { validInputs, sectionInputsArr };
   }
 
@@ -68,14 +67,15 @@ export default function FormActions({
     };
 
     const currentSectionActions = sectionActions[section];
-
-    if (direction === 'next') {
-      currentSectionActions.next && currentSectionActions.next();
-    } else if (direction === 'prev') {
-      currentSectionActions.prev && currentSectionActions.prev();
+    if (isAllValid) {
+      if (direction === 'next') {
+        currentSectionActions.next && currentSectionActions.next();
+        currentSectionActions.setValidity();
+      } else if (direction === 'prev') {
+        currentSectionActions.prev && currentSectionActions.prev();
+      }
+      currentSectionActions.setValidity();
     }
-
-    currentSectionActions.setValidity();
   }
 
   function switchAction(): JSX.Element | null {
@@ -85,7 +85,7 @@ export default function FormActions({
           <Button
             onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
               e.preventDefault();
-              addEventListenersInputs();
+              displayValidity();
               validateSection('next');
             }}
             text='Next'
@@ -97,7 +97,7 @@ export default function FormActions({
             <Button
               onClick={(e) => {
                 e.preventDefault();
-                addEventListenersInputs();
+                displayValidity();
                 validateSection('prev');
               }}
               text='Prev'
@@ -105,7 +105,7 @@ export default function FormActions({
             <Button
               onClick={(e) => {
                 e.preventDefault();
-                addEventListenersInputs();
+                displayValidity();
                 validateSection('next');
               }}
               text='Next'
@@ -119,7 +119,7 @@ export default function FormActions({
           <Button
             onClick={(e) => {
               e.preventDefault();
-              addEventListenersInputs();
+              displayValidity();
               validateSection('prev');
             }}
             text='Prev'

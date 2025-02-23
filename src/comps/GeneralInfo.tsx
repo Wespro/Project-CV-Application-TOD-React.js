@@ -14,7 +14,7 @@ export default function GeneralInfo({
         text={'Full-Name'}
         inputOF={'generalInfoInput'}
         contClass={'inputCont'}
-        label={'fullName'}
+        label={'fullNameInput'}
         value={formInputs.fullNameInput}
         setFormInputs={setFormInputs}
         formInputs={formInputs}
@@ -26,7 +26,7 @@ export default function GeneralInfo({
         text={'E-mail'}
         inputOF={'generalInfoInput'}
         contClass={'inputCont'}
-        label={'email'}
+        label={'emailInput'}
         value={formInputs.emailInput}
         setFormInputs={setFormInputs}
         formInputs={formInputs}
@@ -38,7 +38,7 @@ export default function GeneralInfo({
         text={'Phone-number'}
         inputOF={'generalInfoInput'}
         contClass={'inputCont'}
-        label={'phoneNumber'}
+        label={'phoneNumberInput'}
         value={formInputs.phoneNumberInput}
         setFormInputs={setFormInputs}
         formInputs={formInputs}

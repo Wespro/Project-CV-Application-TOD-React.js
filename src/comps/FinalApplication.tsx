@@ -3,6 +3,7 @@ import '../styles Files/FinalApplication.css';
 import { FormInputsPassedProps } from '../types';
 import Button from './Button';
 import Input from './Input';
+import TextArea from './TextArea';
 
 export default function FinalApplication({
   formInputs,
@@ -13,9 +14,9 @@ export default function FinalApplication({
       <h1 className='finalCVHeader'>Final CV</h1>
       <div className='finalGeneralInfo'>
         <Input
-          inputOF={'finalGeneralInfoInput'}
+          inputOF={'finalGeneralInfoInput final'}
           value={formInputs.fullNameInput}
-          label={'fullNameFinal'}
+          label={'fullNameInput'}
           contClass={'inputContFinal'}
           inputType='text'
           final={true}
@@ -24,8 +25,8 @@ export default function FinalApplication({
         />
         <div className='email-PhoneWrapper'>
           <Input
-            inputOF={'finalGeneralInfoInput'}
-            label={'emailFinal'}
+            inputOF={'finalGeneralInfoInput final'}
+            label={'emailInput'}
             inputType='text'
             value={formInputs.emailInput}
             contClass={'inputContFinal'}
@@ -35,8 +36,8 @@ export default function FinalApplication({
           />
 
           <Input
-            inputOF={'finalGeneralInfoInput'}
-            label={'phoneNumberFinal'}
+            inputOF={'finalGeneralInfoInput final'}
+            label={'phoneNumberInput'}
             final={true}
             contClass={'inputContFinal'}
             inputType='number'
@@ -53,9 +54,9 @@ export default function FinalApplication({
           <Input
             inputType={'text'}
             text={'School Name:'}
-            label={'schoolNameFinal'}
+            label={'schoolNameInput'}
             contClass={'inputContFinal'}
-            inputOF={'eduSectionContentInput'}
+            inputOF={'eduSectionContentInput final'}
             value={formInputs.schoolNameInput}
             setFormInputs={setFormInputs}
             formInputs={formInputs}
@@ -65,9 +66,9 @@ export default function FinalApplication({
           <Input
             inputType={'text'}
             text={'Study Title:'}
-            label={'studyTitleFinal'}
+            label={'studyTitleInput'}
             contClass={'inputContFinal'}
-            inputOF={'eduSectionContentInput'}
+            inputOF={'eduSectionContentInput final'}
             value={formInputs.studyTitleInput}
             setFormInputs={setFormInputs}
             formInputs={formInputs}
@@ -77,9 +78,9 @@ export default function FinalApplication({
           <Input
             inputType={'date'}
             text={'Study Date:'}
-            label={'studyDateFinal'}
+            label={'studyDateInput'}
             contClass={'inputContFinal'}
-            inputOF={'eduSectionContentInput'}
+            inputOF={'eduSectionContentInput final'}
             value={formInputs.studyDateInput}
             setFormInputs={setFormInputs}
             formInputs={formInputs}
@@ -95,8 +96,8 @@ export default function FinalApplication({
             <Input
               inputType={'text'}
               text={'Company-name'}
-              label={'companyNameFinal'}
-              inputOF={'profSectionContentInput'}
+              label={'companyNameInput'}
+              inputOF={'profSectionContentInput final'}
               contClass={'inputContFinal'}
               value={formInputs.companyNameInput}
               setFormInputs={setFormInputs}
@@ -107,33 +108,33 @@ export default function FinalApplication({
             <Input
               inputType={'text'}
               text={'Position-title'}
-              label={'positionTitleFinal'}
+              label={'positionTitleInput'}
               contClass={'inputContFinal'}
-              inputOF={'profSectionContentInput'}
+              inputOF={'profSectionContentInput final'}
               value={formInputs.positionTitleInput}
               setFormInputs={setFormInputs}
               formInputs={formInputs}
               final={true}
             />
-            <Input
-              inputType={'text'}
+            <TextArea
               text={'Main-responsibility'}
-              label={'mainResponsibilityFinal'}
+              label={'mainResponsibilityTextArea'}
               contClass={'inputContFinal'}
-              inputOF={'profSectionContentInput'}
+              textAreaOF={'profSectionContentInput final'}
               value={formInputs.mainResponsibilityTextArea}
               setFormInputs={setFormInputs}
               formInputs={formInputs}
-              final={true}
+              rows={5}
+              cols={10}
             />
           </div>
           <div className='profSectionContentBotSide'>
             <Input
               inputType={'date'}
               text={'Start Date'}
-              label={'startDateFinal'}
+              label={'startDateInput'}
               contClass={'inputContFinal'}
-              inputOF={'profSectionContentInput'}
+              inputOF={'profSectionContentInput final'}
               value={formInputs.startDateInput}
               setFormInputs={setFormInputs}
               formInputs={formInputs}
@@ -142,9 +143,9 @@ export default function FinalApplication({
             <Input
               inputType={'date'}
               text={'End Date'}
-              label={'endDateFinal'}
+              label={'endDateInput'}
               contClass={'inputContFinal'}
-              inputOF={'profSectionContentInput'}
+              inputOF={'profSectionContentInput final'}
               value={formInputs.endDateInput}
               setFormInputs={setFormInputs}
               formInputs={formInputs}

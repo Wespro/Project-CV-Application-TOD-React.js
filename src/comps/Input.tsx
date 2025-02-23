@@ -16,7 +16,7 @@ export default function Input({
   const handleFormInputs = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     if (formInputs && setFormInputs) {
-      setFormInputs({ ...formInputs, [name + 'Input']: value });
+      setFormInputs({ ...formInputs, [name]: value });
     }
   };
 

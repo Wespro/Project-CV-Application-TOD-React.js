@@ -30,7 +30,7 @@ function App(): JSX.Element | null {
     studyDateInput: '',
     companyNameInput: '',
     positionTitleInput: '',
-    mainResponsibilityTexArea: '',
+    mainResponsibilityTextArea: '',
     startDateInput: '',
     endDateInput: '',
   });
@@ -52,17 +52,17 @@ function App(): JSX.Element | null {
     setSection(section);
   }, [section]);
 
-  function addEventListenersInputs(): void {
+  function displayValidity(): void {
     const inputs = document.querySelectorAll(`input`);
     const textArea = document.querySelector(`textarea`);
     if (textArea) {
       if (textArea.checkValidity()) {
         (textArea.nextSibling as HTMLSpanElement).textContent = '';
       } else {
-        console.log(textArea.nextSibling);
         (textArea.nextSibling as HTMLSpanElement).textContent =
           'Please fill this input in its intended way';
         (textArea.nextSibling as HTMLSpanElement).style.color = 'red';
+        textArea.setCustomValidity('invalid');
       }
     }
 
@@ -133,7 +133,7 @@ function App(): JSX.Element | null {
               setSectionsValidity={setSectionsValidity}
               setSection={setSection}
               section={section}
-              addEventListenersInputs={addEventListenersInputs}
+              displayValidity={displayValidity}
               areaActiveFn={areaActiveFn}
             />
           </form>

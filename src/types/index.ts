@@ -58,7 +58,7 @@ export interface FormActionsPropsTypes {
   setSectionsValidity: React.Dispatch<React.SetStateAction<sectionsValidity>>;
   setSection: React.Dispatch<React.SetStateAction<string>>;
   section: string;
-  addEventListenersInputs: () => void;
+  displayValidity: () => void;
   areaActiveFn: (sectionName: string) => void;
 }
 

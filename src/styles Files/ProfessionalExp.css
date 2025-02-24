@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  justify-content: center;
+  flex: 1;
   padding: 1rem;
 }
 .professionalExp > * {
@@ -18,6 +18,7 @@
   flex-direction: column;
   gap: 0.5rem;
   align-items: center;
+  justify-content: center;
 }
 .jobResponsibility {
   flex-grow: 1;
@@ -28,13 +29,16 @@
   gap: 0.5rem;
   flex-grow: 1;
 }
-
+textarea {
+  resize: none;
+  padding: 1rem;
+}
 .professionalExp textarea {
   resize: none;
   padding: 0.5rem 1rem;
 }
 .professionalExp label {
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 5vw, 1.5rem);
   color: #242424;
 }
 .professionalExp input {

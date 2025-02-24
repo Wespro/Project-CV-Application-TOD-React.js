@@ -12,6 +12,7 @@ export default function FinalApplication({
   return (
     <div className='finalApplication'>
       <h1 className='finalCVHeader'>Final CV</h1>
+      <h1 className='sectionName profSection'>Genral Info</h1>
       <div className='finalGeneralInfo'>
         <Input
           inputOF={'finalGeneralInfoInput final'}
@@ -116,6 +117,8 @@ export default function FinalApplication({
               formInputs={formInputs}
               final={true}
             />
+          </div>
+          <div>
             <TextArea
               text={'Main-responsibility'}
               label={'mainResponsibilityTextArea'}

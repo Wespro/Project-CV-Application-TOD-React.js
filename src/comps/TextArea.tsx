@@ -23,6 +23,7 @@ export default function TextArea({
       }
     }
   }
+
   const handleFormTextArea = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { id, value } = e.target;
     if (formInputs && setFormInputs) {
@@ -31,7 +32,7 @@ export default function TextArea({
   };
   return (
     <div className={label + 'Cont textArea'}>
-      <label htmlFor={label}>{text}</label>
+      {textAreaOF.includes('final') || <label htmlFor={label}>{text}</label>}
       <textarea
         onBlur={addEventListenersTextArea}
         onChange={handleFormTextArea}

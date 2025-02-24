@@ -32,10 +32,10 @@ export default function FormActions({
           setSection('edu');
           areaActiveFn('edu');
         },
-        setValidity: () =>
+        setValidity: (valid = isAllValid) =>
           setSectionsValidity({
             ...sectionsValidity,
-            section1Validity: isAllValid,
+            section1Validity: valid,
           }),
       },
       edu: {
@@ -47,10 +47,10 @@ export default function FormActions({
           setSection('general');
           areaActiveFn('general');
         },
-        setValidity: () =>
+        setValidity: (valid = isAllValid) =>
           setSectionsValidity({
             ...sectionsValidity,
-            section2Validity: isAllValid,
+            section2Validity: valid,
           }),
       },
       prof: {
@@ -58,10 +58,10 @@ export default function FormActions({
           setSection('edu');
           areaActiveFn('edu');
         },
-        setValidity: () =>
+        setValidity: (valid = isAllValid) =>
           setSectionsValidity({
             ...sectionsValidity,
-            section3Validity: isAllValid,
+            section3Validity: valid,
           }),
       },
     };
@@ -73,8 +73,10 @@ export default function FormActions({
         currentSectionActions.setValidity();
       } else if (direction === 'prev') {
         currentSectionActions.prev && currentSectionActions.prev();
+        currentSectionActions.setValidity(false);
+      } else {
+        currentSectionActions.setValidity();
       }
-      currentSectionActions.setValidity();
     }
   }
 

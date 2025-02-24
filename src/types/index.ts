@@ -66,6 +66,6 @@ export interface SectionActions {
   [key: string]: {
     next?: () => void;
     prev?: () => void;
-    setValidity: () => void;
+    setValidity: (valid?: boolean) => void;
   };
 }

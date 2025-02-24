@@ -62,7 +62,6 @@ function App(): JSX.Element | null {
         (textArea.nextSibling as HTMLSpanElement).textContent =
           'Please fill this input in its intended way';
         (textArea.nextSibling as HTMLSpanElement).style.color = 'red';
-        textArea.setCustomValidity('invalid');
       }
     }
 
@@ -123,8 +122,6 @@ function App(): JSX.Element | null {
             <div className='paper1 paper'></div>
             <div className='paper2 paper'></div>
             <Nav />
-
-            <hr />
 
             <h1>CV Application</h1>
             <div className='formPage'> {switchFormPages()}</div>
